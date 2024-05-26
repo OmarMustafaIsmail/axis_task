@@ -18,7 +18,8 @@ class DioHelper {
       {required url, Map<String, dynamic>? query, String? token}) async {
     dio!.options.headers = {
       'content-type': 'application/json',
-      'Authorization': token != null ? "Bearer $token" : "",
+      'Authorization':
+          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzZjhmZWFmZGFhZDg2OTNkNjI0Y2VmMzIzYTg1ODIzOSIsInN1YiI6IjYxNDI1NTYwZGFmNTdjMDA0MzVlYjQ3MiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.y_iLwtaxD_fNLTVgp332PGz8rE-imqH3QZ8lHPFDX58",
       'Accept': '*/*',
       'Connection': 'keep-alive'
     };
@@ -67,7 +68,8 @@ class DioHelper {
     };
     dio!.options.headers = {
       'Content-Type': contentType ?? 'application/json',
-      'Authorization': token != null ? "Bearer $token" : "",
+      'Authorization':
+          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzZjhmZWFmZGFhZDg2OTNkNjI0Y2VmMzIzYTg1ODIzOSIsInN1YiI6IjYxNDI1NTYwZGFmNTdjMDA0MzVlYjQ3MiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.y_iLwtaxD_fNLTVgp332PGz8rE-imqH3QZ8lHPFDX58",
     };
     debugPrint("post data => $url ${data.toString()}");
     return dio!.post(
