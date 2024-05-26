@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:axis_task/modules/home/cubit/cubit.dart';
 import 'package:axis_task/utils/network/local/cache_manager.dart';
 import 'package:axis_task/utils/network/remote/dio_manager.dart';
 import 'package:axis_task/utils/palette.dart';
@@ -25,7 +26,12 @@ class AxisTask extends StatelessWidget {
         media.textScaler.scale(Platform.isAndroid ? 0.85 : 0.8);
     return Sizer(builder: (context, orientation, deviceType) {
       return MultiBlocProvider(
-        providers: const [],
+        providers: [
+          BlocProvider(
+            create: (BuildContext context) =>
+                HomeScreenCubit()..getCelebrities(),
+          )
+        ],
         child: MediaQuery(
           data: media.copyWith(
               textScaler: !isMobile(context)
