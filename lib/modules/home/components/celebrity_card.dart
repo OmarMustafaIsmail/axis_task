@@ -1,8 +1,11 @@
 import 'package:axis_task/modules/home/components/popularity_card.dart';
 import 'package:axis_task/modules/home/models/celebrity_model.dart';
+import 'package:axis_task/modules/person/cubit/cubit.dart';
 import 'package:axis_task/utils/network/remote/end_points.dart';
 import 'package:axis_task/utils/palette.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:sizer/sizer.dart';
 
 class CelebrityCard extends StatelessWidget {
@@ -13,7 +16,12 @@ class CelebrityCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      // onTap: ()=>context.read<CelebrityDetailsCubit>().getCelebrityDetails(),
+      onTap: () {
+        context
+            .read<CelebrityDetailsCubit>()
+            .getCelebrityDetails(id: celebrity.id);
+        context.push('/celebrity_details');
+      },
       child: Padding(
         padding: EdgeInsets.only(bottom: 2.h),
         child: Container(
