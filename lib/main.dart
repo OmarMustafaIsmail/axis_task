@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:axis_task/modules/home/cubit/cubit.dart';
+import 'package:axis_task/modules/person/cubit/cubit.dart';
 import 'package:axis_task/utils/network/local/cache_manager.dart';
 import 'package:axis_task/utils/network/remote/dio_manager.dart';
 import 'package:axis_task/utils/palette.dart';
@@ -30,6 +31,9 @@ class AxisTask extends StatelessWidget {
           BlocProvider(
             create: (BuildContext context) =>
                 HomeScreenCubit()..getCelebrities(),
+          ),
+          BlocProvider(
+            create: (BuildContext context) => CelebrityDetailsCubit(),
           )
         ],
         child: MediaQuery(
@@ -42,7 +46,7 @@ class AxisTask extends StatelessWidget {
             title: 'Axis',
             theme: ThemeData(
               scaffoldBackgroundColor: Palette.kScaffoldColor,
-              fontFamily: 'Avenir',
+              fontFamily: 'Montserrat',
               useMaterial3: false,
             ),
             routerConfig: router,

@@ -40,6 +40,8 @@ dependencies:
   shared_preferences: ^2.2.3
   go_router: ^14.1.3
   cached_network_image: ^3.3.1
+  image_gallery_saver: ^2.0.3
+  permission_handler: ^11.3.1
 
 
 
@@ -87,15 +89,15 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Avenir
+    - family: Montserrat
       fonts:
-        - asset: assets/fonts/AvenirRegular.otf
+        - asset: assets/fonts/MontserratRegular.ttf
           weight: 500
-        - asset: assets/fonts/AvenirMedium.otf
+        - asset: assets/fonts/MontserratMedium.ttf
           weight: 600
-        - asset: assets/fonts/AvenirBold.otf
+        - asset: assets/fonts/MontserratBold.ttf
           weight: 700
-        - asset: assets/fonts/AvenirExtraBold.otf
+        - asset: assets/fonts/MontserratExtraBold.ttf
           weight: 900
   #
   # For details regarding fonts from package dependencies,

@@ -6,6 +6,10 @@ class Palette {
   static const kDarkGreyColor = Color.fromRGBO(105, 111, 111, 1);
   static const kLightRedColor = Color.fromRGBO(165, 116, 116, 1);
   static const kDangerRedColor = Color.fromRGBO(227, 31, 31, 1);
-
   static const kWhiteColor = Colors.white;
+  static final opacityGradient = LinearGradient(
+    begin: Alignment.bottomCenter,
+    end: Alignment.topCenter,
+    colors: [Colors.black.withOpacity(0.4), Colors.transparent],
+  );
 }
