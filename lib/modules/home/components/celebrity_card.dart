@@ -2,6 +2,7 @@ import 'package:axis_task/modules/home/components/popularity_card.dart';
 import 'package:axis_task/modules/home/models/celebrity_model.dart';
 import 'package:axis_task/utils/network/remote/end_points.dart';
 import 'package:axis_task/utils/palette.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
@@ -30,8 +31,9 @@ class CelebrityCard extends StatelessWidget {
                   flex: 2,
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(14),
-                    child: Image.network(
-                      '${ApiConstants.baseImageUrl}${celebrity.mainImage}',
+                    child: CachedNetworkImage(
+                      imageUrl:
+                          '${ApiConstants.baseImageUrl}${celebrity.mainImage}',
                       height: 15.h,
                       width: 30.w,
                       fit: BoxFit.cover,
