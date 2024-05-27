@@ -3,25 +3,30 @@ import 'package:axis_task/modules/home/models/celebrity_model.dart';
 import 'package:axis_task/modules/person/cubit/cubit.dart';
 import 'package:axis_task/utils/network/remote/end_points.dart';
 import 'package:axis_task/utils/palette.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sizer/sizer.dart';
 
 class CelebrityCard extends StatelessWidget {
-  const CelebrityCard({required this.celebrity, super.key});
+  const CelebrityCard(
+      {required this.celebrity, super.key, required this.isConnected});
 
   final CelebrityModel celebrity;
+  final bool isConnected;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        context
-            .read<CelebrityDetailsCubit>()
-            .getCelebrityDetails(id: celebrity.id);
-        context.push('/celebrity_details');
-      },
+      onTap: !isConnected
+          ? () {}
+          : () {
+              context
+                  .read<CelebrityDetailsCubit>()
+                  .getCelebrityDetails(id: celebrity.id);
+              context.push('/celebrity_details');
+            },
       child: Padding(
         padding: EdgeInsets.only(bottom: 2.h),
         child: Container(
@@ -38,8 +43,9 @@ class CelebrityCard extends StatelessWidget {
                   flex: 2,
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(14),
-                    child: Image.network(
-                      '${ApiConstants.baseImageUrl}${celebrity.mainImage}',
+                    child: CachedNetworkImage(
+                      imageUrl:
+                          '${ApiConstants.baseImageUrl}${celebrity.mainImage}',
                       height: 15.h,
                       width: 30.w,
                       fit: BoxFit.cover,

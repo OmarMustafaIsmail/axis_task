@@ -20,4 +20,14 @@ class CelebrityModel {
     popularity = json['popularity'] ?? 0.0;
     department = json['known_for_department'] ?? 'Default Department';
   }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'profile_path': mainImage,
+      'popularity': popularity,
+      'known_for_department': department,
+    };
+  }
 }
