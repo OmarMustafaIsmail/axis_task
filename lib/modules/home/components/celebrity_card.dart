@@ -10,19 +10,23 @@ import 'package:go_router/go_router.dart';
 import 'package:sizer/sizer.dart';
 
 class CelebrityCard extends StatelessWidget {
-  const CelebrityCard({required this.celebrity, super.key});
+  const CelebrityCard(
+      {required this.celebrity, super.key, required this.isConnected});
 
   final CelebrityModel celebrity;
+  final bool isConnected;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        context
-            .read<CelebrityDetailsCubit>()
-            .getCelebrityDetails(id: celebrity.id);
-        context.push('/celebrity_details');
-      },
+      onTap: !isConnected
+          ? () {}
+          : () {
+              context
+                  .read<CelebrityDetailsCubit>()
+                  .getCelebrityDetails(id: celebrity.id);
+              context.push('/celebrity_details');
+            },
       child: Padding(
         padding: EdgeInsets.only(bottom: 2.h),
         child: Container(

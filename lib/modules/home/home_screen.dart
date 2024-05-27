@@ -120,6 +120,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     itemBuilder: (context, index) {
                       return CelebrityCard(
                         celebrity: celebrities[index],
+                        isConnected: connectionState,
                       );
                     },
                     onLoadMore: _onLoadMore,
