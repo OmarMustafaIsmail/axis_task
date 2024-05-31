@@ -1,9 +1,9 @@
-import 'package:axis_task/modules/home/models/celebrity_model.dart';
+import 'package:axis_task/modules/home/domain/entities/celebrity.dart';
 
 abstract class HomeScreenStates {}
 
 class HomeScreenDataState extends HomeScreenStates {
-  final List<CelebrityModel> celebrities;
+  final List<Celebrity> celebrities;
   bool hasMorePages;
   HomeScreenDataState({
     this.celebrities = const [],
@@ -12,7 +12,7 @@ class HomeScreenDataState extends HomeScreenStates {
 }
 
 class HomeScreenLoadingDataState extends HomeScreenStates {
-  final List<CelebrityModel> oldCelebrities;
+  final List<Celebrity> oldCelebrities;
   final bool isFirstFetch;
 
   HomeScreenLoadingDataState(

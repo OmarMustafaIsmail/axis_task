@@ -1,4 +1,4 @@
-import 'package:axis_task/modules/home/home_screen.dart';
+import 'package:axis_task/modules/home/presentation/home_screen.dart';
 import 'package:axis_task/modules/person/celebrity_details_screen.dart';
 import 'package:axis_task/modules/person/image_screen.dart';
 import 'package:flutter/material.dart';

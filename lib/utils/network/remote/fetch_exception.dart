@@ -14,3 +14,4 @@ class FetchException implements Exception {
     return message;
   }
 }
+

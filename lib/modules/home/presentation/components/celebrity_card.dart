@@ -1,5 +1,5 @@
-import 'package:axis_task/modules/home/components/popularity_card.dart';
-import 'package:axis_task/modules/home/models/celebrity_model.dart';
+import 'package:axis_task/modules/home/domain/entities/celebrity.dart';
+import 'package:axis_task/modules/home/presentation/components/popularity_card.dart';
 import 'package:axis_task/modules/person/cubit/cubit.dart';
 import 'package:axis_task/utils/network/remote/end_points.dart';
 import 'package:axis_task/utils/palette.dart';
@@ -13,7 +13,7 @@ class CelebrityCard extends StatelessWidget {
   const CelebrityCard(
       {required this.celebrity, super.key, required this.isConnected});
 
-  final CelebrityModel celebrity;
+  final Celebrity celebrity;
   final bool isConnected;
 
   @override
