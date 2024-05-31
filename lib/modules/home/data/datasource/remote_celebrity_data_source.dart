@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:axis_task/modules/home/data/models/celebrity_model.dart';
 import 'package:axis_task/utils/network/local/cache_manager.dart';
 import 'package:axis_task/utils/network/remote/fetch_exception.dart';
@@ -44,7 +43,7 @@ class RemoteCelebrityDataSource extends BaseRemoteDataSource{
         canLoadMore: page < result.data['total_pages'],
       );
     } else {
-      final List<String>? localData =
+      final List<dynamic>? localData =
           CacheManager.getData(key: 'celebrities_page_$page');
       if (localData != null) {
         debugPrint("Loaded from SharedPreferences: $localData");
@@ -58,7 +57,8 @@ class RemoteCelebrityDataSource extends BaseRemoteDataSource{
           canLoadMore: false,
         );
       }else {
-        throw FetchException(result.data['message']);
+        debugPrint(result.data);
+        throw FetchException(result.data['status_message']);
       }
     }
   }

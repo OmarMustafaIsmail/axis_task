@@ -4,6 +4,7 @@ import 'package:axis_task/modules/home/domain/entities/celebrity.dart';
 import 'package:axis_task/modules/home/domain/repository/base_celebrity_repository.dart';
 import 'package:axis_task/modules/home/domain/usecases/get_popular_celebrities_usecase.dart';
 import 'package:axis_task/modules/home/presentation/cubit/states.dart';
+import 'package:axis_task/shared/globs.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -25,21 +26,28 @@ class HomeScreenCubit extends Cubit<HomeScreenStates> {
     }
     emit(HomeScreenLoadingDataState(oldCelebrities, isFirstFetch: page == 1));
     BaseRemoteDataSource baseRemoteDataSource = RemoteCelebrityDataSource();
-    BaseCelebrityRepository baseCelebrityRepository = CelebrityRepository(baseRemoteDataSource);
-    var newCelebrities = await GetPopularCelebritiesUseCase(baseCelebrityRepository).execute(page: page);
+    BaseCelebrityRepository baseCelebrityRepository =
+        CelebrityRepository(baseRemoteDataSource);
+    var newCelebrities =
+        await GetPopularCelebritiesUseCase(baseCelebrityRepository)
+            .execute(page: page);
     page++;
     var celebrities = List<Celebrity>.from(
-        (state as HomeScreenLoadingDataState).oldCelebrities,);
+      (state as HomeScreenLoadingDataState).oldCelebrities,
+    );
     bool canLoadMore = false;
     newCelebrities.fold((l) {
-      debugPrint(l.message);
+      Globals.snackBarKey.currentState?.showSnackBar(
+        SnackBar(
+          content: Text(l.message),
+        ),
+      );
     }, (r) {
       celebrities.addAll(r.celebrities);
       canLoadMore = r.canLoadMore;
     });
     emit(
-      HomeScreenDataState(
-          celebrities: celebrities, hasMorePages: canLoadMore),
+      HomeScreenDataState(celebrities: celebrities, hasMorePages: canLoadMore),
     );
   }
 }

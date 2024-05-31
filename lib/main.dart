@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:axis_task/modules/home/presentation/cubit/cubit.dart';
 import 'package:axis_task/modules/person/cubit/cubit.dart';
+import 'package:axis_task/shared/globs.dart';
 import 'package:axis_task/utils/network/local/cache_manager.dart';
 import 'package:axis_task/utils/network/remote/dio_manager.dart';
 import 'package:axis_task/utils/palette.dart';
@@ -15,6 +16,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await CacheManager.init();
   await DioHelper.init();
+  CacheManager.removeData(key: 'celebrities_page_1');
   runApp(const AxisTask());
 }
 
@@ -42,6 +44,7 @@ class AxisTask extends StatelessWidget {
                   ? const TextScaler.linear(0.75)
                   : TextScaler.linear(textScaleFactor)),
           child: MaterialApp.router(
+            scaffoldMessengerKey: Globals.snackBarKey,
             debugShowCheckedModeBanner: false,
             title: 'Axis',
             theme: ThemeData(
