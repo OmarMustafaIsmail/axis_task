@@ -1,6 +1,6 @@
 import 'package:axis_task/modules/home/domain/entities/celebrity.dart';
 import 'package:axis_task/modules/home/presentation/components/popularity_card.dart';
-import 'package:axis_task/modules/person/cubit/cubit.dart';
+import 'package:axis_task/modules/person/presentation/cubit/cubit.dart';
 import 'package:axis_task/utils/network/remote/end_points.dart';
 import 'package:axis_task/utils/palette.dart';
 import 'package:cached_network_image/cached_network_image.dart';

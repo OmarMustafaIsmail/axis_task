@@ -1,8 +1,8 @@
 import 'package:axis_task/modules/person/components/celebrity_details_header.dart';
 import 'package:axis_task/modules/person/components/loading_biography.dart';
 import 'package:axis_task/modules/person/components/photos_grid_view.dart';
-import 'package:axis_task/modules/person/cubit/cubit.dart';
-import 'package:axis_task/modules/person/cubit/states.dart';
+import 'package:axis_task/modules/person/presentation/cubit/cubit.dart';
+import 'package:axis_task/modules/person/presentation/cubit/states.dart';
 import 'package:axis_task/shared/components/shimmer_widget.dart';
 import 'package:axis_task/utils/palette.dart';
 import 'package:flutter/material.dart';

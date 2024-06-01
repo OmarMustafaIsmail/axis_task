@@ -25,7 +25,7 @@ class HomeScreenCubit extends Cubit<HomeScreenStates> {
       oldCelebrities = currentState.celebrities;
     }
     emit(HomeScreenLoadingDataState(oldCelebrities, isFirstFetch: page == 1));
-    BaseRemoteDataSource baseRemoteDataSource = RemoteCelebrityDataSource();
+    BaseRemoteCelebrityDataSource baseRemoteDataSource = RemoteCelebrityDataSource();
     BaseCelebrityRepository baseCelebrityRepository =
         CelebrityRepository(baseRemoteDataSource);
     var newCelebrities =

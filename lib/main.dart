@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'package:axis_task/modules/home/presentation/cubit/cubit.dart';
-import 'package:axis_task/modules/person/cubit/cubit.dart';
+import 'package:axis_task/modules/person/presentation/cubit/cubit.dart';
 import 'package:axis_task/shared/globs.dart';
 import 'package:axis_task/utils/network/local/cache_manager.dart';
 import 'package:axis_task/utils/network/remote/dio_manager.dart';

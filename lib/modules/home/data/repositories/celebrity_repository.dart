@@ -5,7 +5,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 
 class CelebrityRepository extends BaseCelebrityRepository{
-  final BaseRemoteDataSource baseRemoteDataSource;
+  final BaseRemoteCelebrityDataSource baseRemoteDataSource;
 
   CelebrityRepository(this.baseRemoteDataSource);
   @override

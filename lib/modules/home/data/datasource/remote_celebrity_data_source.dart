@@ -7,12 +7,11 @@ import '../../../../utils/network/remote/dio_manager.dart';
 import '../../../../utils/network/remote/end_points.dart';
 
 
-abstract class BaseRemoteDataSource{
+abstract class BaseRemoteCelebrityDataSource{
   Future<CelebrityModelResponse> getPopularCelebrities({required int page});
 }
 
-class RemoteCelebrityDataSource extends BaseRemoteDataSource{
-
+class RemoteCelebrityDataSource extends BaseRemoteCelebrityDataSource{
 
   @override
   Future<CelebrityModelResponse> getPopularCelebrities(
