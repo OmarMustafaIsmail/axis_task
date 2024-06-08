@@ -1,4 +1,4 @@
-import 'package:axis_task/modules/person/cubit/cubit.dart';
+import 'package:axis_task/modules/person/presentation/cubit/cubit.dart';
 import 'package:axis_task/utils/network/remote/end_points.dart';
 import 'package:axis_task/utils/palette.dart';
 import 'package:flutter/material.dart';
@@ -17,26 +17,16 @@ class ImageScreen extends StatefulWidget {
 }
 
 class _ImageScreenState extends State<ImageScreen> {
-  Future<void> _saveimage() async {
+  Future<void> _saveImage() async {
     final result = await context
         .read<CelebrityDetailsCubit>()
         .saveImageToDevice(
             imagePath: widget.imagePath, celebrityName: widget.actorName);
 
-    if (result) {
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Image saved successfully!!')),
-        );
+    if (result && mounted) {
         context.pop();
       }
-    } else {
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Error fetching or saving image')),
-        );
-      }
-    }
+
   }
 
   @override
@@ -83,7 +73,7 @@ class _ImageScreenState extends State<ImageScreen> {
               top: 3.h,
               left: 5.w,
               child: GestureDetector(
-                onTap: _saveimage,
+                onTap: _saveImage,
                 child: Container(
                   height: 5.h,
                   width: 10.w,

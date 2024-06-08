@@ -10,7 +10,6 @@ class FetchException implements Exception {
   });
 
   @override
-  String toString() {
-    return message;
-  }
+  String toString() => message;
 }
+

@@ -1,9 +1,8 @@
 import 'dart:async';
-
-import 'package:axis_task/modules/home/components/celebrity_card.dart';
-import 'package:axis_task/modules/home/cubit/cubit.dart';
-import 'package:axis_task/modules/home/cubit/states.dart';
-import 'package:axis_task/modules/home/models/celebrity_model.dart';
+import 'package:axis_task/modules/home/domain/entities/celebrity.dart';
+import 'package:axis_task/modules/home/presentation/components/celebrity_card.dart';
+import 'package:axis_task/modules/home/presentation/cubit/cubit.dart';
+import 'package:axis_task/modules/home/presentation/cubit/states.dart';
 import 'package:axis_task/shared/components/infinite_list_view.dart';
 import 'package:axis_task/utils/palette.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
@@ -55,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return BlocBuilder<HomeScreenCubit, HomeScreenStates>(
         builder: (context, state) {
-      List<CelebrityModel> celebrities = [];
+      List<Celebrity> celebrities = [];
       bool canLoadMore = true;
 
       if (state is HomeScreenLoadingDataState) {

@@ -1,8 +1,8 @@
-import 'package:axis_task/modules/person/models/celebrity_details_mode.dart';
+import 'package:axis_task/modules/person/domain/entities/celebrity_details.dart';
 
 abstract class CelebrityDetailsStates {}
 
 class CelebrityDetailsDataState extends CelebrityDetailsStates {
-  CelebrityDetailsModel? celebrityDetails;
+  CelebrityDetails? celebrityDetails;
   CelebrityDetailsDataState({this.celebrityDetails});
 }

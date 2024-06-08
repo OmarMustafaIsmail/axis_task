@@ -1,6 +1,6 @@
-import 'package:axis_task/modules/home/home_screen.dart';
-import 'package:axis_task/modules/person/celebrity_details_screen.dart';
-import 'package:axis_task/modules/person/image_screen.dart';
+import 'package:axis_task/modules/home/presentation/home_screen.dart';
+import 'package:axis_task/modules/person/presentation/celebrity_details_screen.dart';
+import 'package:axis_task/modules/person/presentation/image_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
